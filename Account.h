@@ -4,7 +4,7 @@
 class Account
 {
 public:
-	enum Status
+	enum class Status
 	{
 		Closed,
 		Open

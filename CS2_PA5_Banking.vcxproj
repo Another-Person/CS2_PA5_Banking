@@ -141,9 +141,13 @@
   <ItemGroup>
     <ClCompile Include="Account.cpp" />
     <ClCompile Include="Banking.cpp" />
+    <ClCompile Include="Checking.cpp" />
+    <ClCompile Include="myrandom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.h" />
+    <ClInclude Include="Checking.h" />
+    <ClInclude Include="myrandom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
