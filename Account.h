@@ -12,8 +12,8 @@ public:
 
 	Account(int number, Status acctStatus, double startBalance): acctNumber(number), status(acctStatus), balance(startBalance) {}
 
-	void closeAccount() { status = Status::Closed; }
-	void openAccount() { status = Status::Open; }
+	void closeAccount();
+	void openAccount(double balance);
 	virtual void show() = 0;
 	
 protected:

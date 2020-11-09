@@ -9,9 +9,15 @@ class Checking : public Account
 protected:
 	int numberChecks;
 public:
-	Checking(double startBalance) : Account(getRandomInteger(0,5000), Account::Status::Closed, startBalance), numberChecks(10) {}\
+	Checking() : Account(getRandomInteger(0,5000), Account::Status::Closed, 0), numberChecks(10) {}\
 
-	
+	void depositMoney(double depositAmount) { balance += depositAmount; }
+	void withdrawMoney(double withdrawAmount) {balance -= withdrawAmount; }
+
+	void orderChecks(int orderedChecks) { numberChecks += orderedChecks; }
+	void writeCheck(double checkBalance);
+
+	void show() override;
 };
 
 #endif
