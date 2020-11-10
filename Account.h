@@ -1,6 +1,8 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
+#include "Customer.h"
+
 class Account
 {
 public:
@@ -15,6 +17,8 @@ public:
 	void closeAccount();
 	void openAccount(double balance);
 	virtual void show() = 0;
+
+	friend class Customer;
 	
 protected:
 	int acctNumber;

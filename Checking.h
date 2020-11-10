@@ -3,6 +3,7 @@
 
 #include "Account.h"
 #include "myrandom.h"
+#include "Customer.h"
 
 class Checking : public Account
 {
