@@ -1,8 +1,6 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
-#include "Customer.h"
-
 class Account
 {
 public:

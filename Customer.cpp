@@ -1,9 +1,9 @@
 #include  <iostream>
 
+#include "Account.h"
 #include "Customer.h"
 #include "Checking.h"
 #include "Savings.h"
-#include "Account.h"
 
 bool Customer::isCheckingAccountOpen()
 {
