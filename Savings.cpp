@@ -1,5 +1,6 @@
-#include "Savings.h"
 #include <iostream>
+
+#include "Savings.h"
 
 void Savings::openAccount(double balance)
 {

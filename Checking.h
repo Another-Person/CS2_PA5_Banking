@@ -3,12 +3,9 @@
 
 #include "Account.h"
 #include "myrandom.h"
-#include "Customer.h"
 
 class Checking : public Account
 {
-protected:
-	int numberChecks;
 public:
 	Checking() : Account(getRandomInteger(0,5000), Account::Status::Closed, 0), numberChecks(10) {}\
 
@@ -19,6 +16,10 @@ public:
 	void writeCheck(double checkBalance);
 
 	void show() override;
+
+protected:
+	int numberChecks;
+
 };
 
 #endif

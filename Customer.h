@@ -2,6 +2,7 @@
 #define CUSTOMER_H
 
 #include <string>
+
 #include "Checking.h"
 #include "Savings.h"
 
@@ -20,7 +21,6 @@ protected:
 	int pin;
 	Checking checkingAccount;
 	Savings savingsAccount;
-
 	
 };
 

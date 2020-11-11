@@ -1,5 +1,6 @@
-#include "Checking.h"
 #include <iostream>
+
+#include "Checking.h"
 
 void Checking::writeCheck(double checkBalance)
 {
