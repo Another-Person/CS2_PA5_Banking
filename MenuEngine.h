@@ -11,8 +11,8 @@
 
 int mainMenu();
 
-Customer& createNewCustomer(const std::vector<int>& pinList);
-Customer& loginMenu(std::vector<Customer>& customerList);
+Customer& createNewCustomer(std::vector<int>& pinList);
+Customer* loginMenu(std::vector<Customer>& customerList);
 
 int customerMenu(Customer& customer);
 int checkingAccountMenu(Checking& checkingAccount);

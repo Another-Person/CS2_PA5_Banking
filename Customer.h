@@ -17,7 +17,10 @@ public:
 
 	void showCustomerInfo();
 
-	friend Customer& createNewCustomer(const std::vector<int>& pinList);
+	std::string getName() { return name; }
+	bool checkPIN(int pinToCheck) { return (pin == pinToCheck); }
+
+	friend Customer& createNewCustomer(std::vector<int>& pinList);
 
 protected:
 	std::string name;

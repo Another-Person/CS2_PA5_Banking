@@ -48,7 +48,7 @@ int getProperPIN(const std::vector<int>& pinList)
 	return pin;
 }
 
-Customer& createNewCustomer(const std::vector<int>& pinList)
+Customer& createNewCustomer(std::vector<int>& pinList)
 {
 	std::cout << "Please enter the name for the new account: ";
 	std::string name;
@@ -56,9 +56,33 @@ Customer& createNewCustomer(const std::vector<int>& pinList)
 	std::cout << "\n";
 
 	int pin = getProperPIN(pinList);
+	pinList.push_back(pin);
 
 	Customer tempCustomer = Customer();
 	tempCustomer.name = name;
 	tempCustomer.pin = pin;
 	return tempCustomer;
+}
+
+Customer* loginMenu(std::vector<Customer>& customerList)
+{
+	std::cout << "Please select whether you would like to login with a name or PIN: \n";
+	std::cout << "1 - Login via name \n";
+	std::cout << "2 - Login via PIN \n";
+
+	int selection = 0;
+	std::cin >> selection;
+	std::cin.ignore(32767, '\n');
+
+	Customer* returnCustomer = nullptr;
+	
+	switch (selection)
+	{
+	case 0:
+		std::cout << "I'm sorry, but we could not understand your input. Please type either a '1' or a '2'. \n";
+		break;
+	case 1:
+		std::cout << "filler text running a build test";
+
+	}
 }
