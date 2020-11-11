@@ -2,6 +2,7 @@
 #define CUSTOMER_H
 
 #include <string>
+#include <vector>
 
 #include "Checking.h"
 #include "Savings.h"
@@ -15,6 +16,8 @@ public:
 	bool isSavingsAccountOpen();
 
 	void showCustomerInfo();
+
+	friend Customer& createNewCustomer(const std::vector<int>& pinList);
 
 protected:
 	std::string name;
