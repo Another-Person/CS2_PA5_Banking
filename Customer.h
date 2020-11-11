@@ -11,8 +11,9 @@ public:
 	Customer() : name(""), pin(0), checkingAccount(), savingsAccount() {}
 
 	bool isCheckingAccountOpen();
-
 	bool isSavingsAccountOpen();
+
+	void showCustomerInfo();
 
 protected:
 	std::string name;
