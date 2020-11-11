@@ -33,7 +33,7 @@ int getProperPIN(const std::vector<int>& pinList)
 	if (static_cast<int>(log10(pin) + 1) != 4)
 	{
 		std::cout << "I'm sorry, but the PIN must be 4 digits long. Please try again, making sure to only enter 4 digits.";
-		pin = getProperPIN(pinList)
+		pin = getProperPIN(pinList);
 	}
 
 	for (int element : pinList)
