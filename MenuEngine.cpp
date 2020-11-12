@@ -86,10 +86,10 @@ Customer* MenuEngine::loginMenu()
 		std::cout << "Please enter the customer name: ";
 		std::string name;
 		std::getline(std::cin, name);
-		for (Customer customer : customerList)
+		for (int i = 0; i < customerList.size(); i++)
 		{
-			if (customer.getName() == name)
-				returnCustomer = &customer;
+			if (customerList.at(i).getName() == name)
+				returnCustomer = &customerList.at(i);
 		}
 		if (returnCustomer == nullptr)
 		{
@@ -108,10 +108,10 @@ Customer* MenuEngine::loginMenu()
 			std::cout << "I'm sorry, but the PIN must be 4 digits long. Please try again.";
 			returnCustomer = loginMenu(); // yep, we're making them start over again
 		}
-		for (Customer customer : customerList)
+		for (int i = 0; i < customerList.size(); i++)
 		{
-			if (customer.checkPIN(pin) == true)
-				returnCustomer = &customer;
+			if (customerList.at(i).checkPIN(pin) == true)
+				returnCustomer = &customerList.at(i);
 		}
 		if (returnCustomer == nullptr)
 		{
@@ -141,8 +141,8 @@ double getMoneyInput(std::string amountName = "amount")
 	std::cin >> cents;
 	std::cin.ignore(32767, '\n');
 	std::cout << "\n";
-	double newBalance = dollars+(static_cast<double>(cents) / 10);
-	std::cout << "Is " << newBalance << "the correct " << amountName << "? Y/n ";
+	double newBalance = dollars+(static_cast<double>(cents) / 100);
+	std::cout << "Is " << newBalance << " the correct " << amountName << "? Y/n ";
 	std::string answer;
 	std::getline(std::cin, answer);
 	if (answer == "y" || answer == "Y" || answer == "yes" || answer == "Yes")
