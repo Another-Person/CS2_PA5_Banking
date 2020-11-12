@@ -22,7 +22,7 @@ public:
 
 private:
 	static std::vector<Customer> customerList;
-	static std::vector<int> pinList;
+	static std::vector<std::string> pinList;
 
 };
 

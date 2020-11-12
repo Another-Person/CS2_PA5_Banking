@@ -11,7 +11,7 @@
 class Customer
 {
 public:
-	Customer() : name(""), pin(0), checkingAccount(), savingsAccount() {}
+	Customer() : name(""), pin(), checkingAccount(), savingsAccount() {}
 
 	bool isCheckingAccountOpen();
 	bool isSavingsAccountOpen();
@@ -19,7 +19,7 @@ public:
 	void showCustomerInfo();
 
 	std::string getName() { return name; }
-	bool checkPIN(int pinToCheck) { return (pin == pinToCheck); }
+	bool checkPIN(std::string pinToCheck) { return (pin == pinToCheck); }
 
 	void openCheckingAccount(double balance) { checkingAccount.openAccount(balance); }
 	void closeCheckingAccount() { checkingAccount.closeAccount(); }
@@ -30,7 +30,7 @@ public:
 
 protected:
 	std::string name;
-	int pin;
+	std::string pin;
 	Checking checkingAccount;
 	Savings savingsAccount;
 	

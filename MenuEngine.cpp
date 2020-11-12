@@ -4,6 +4,9 @@
 #include "MenuEngine.h"
 #include "Customer.h"
 
+std::vector<Customer> MenuEngine::customerList;
+std::vector<std::string> MenuEngine::pinList;
+
 int MenuEngine::mainMenu()
 {
 	std::cout << "Welcome to 5 Star Banking(tm)! \n";
@@ -14,29 +17,28 @@ int MenuEngine::mainMenu()
 
 	int returnValue = 0;
 	std::cin >> returnValue;
+	std::cin.ignore(32767, '\n');
 	return returnValue;
 	
 }
 
-int getProperPIN(const std::vector<int>& pinList)
+std::string getProperPIN(const std::vector<std::string>& pinList)
 {
 	std::cout << "Please enter the four-digit PIN for the new account: ";
-	int pin = 0;
-	std:: cin >> pin;
-
-	std::cin.ignore(32767, '\n'); // I know it should be something like "numeric limits streamsize max" but even I have limits on how far I'm willing to go
-	if (pin == 0)
+	std::string pin;
+	std::getline(std::cin, pin);
+	if (false)
 	{
 		std::cout << "I'm sorry, but we could not understand your input. Please try again, making sure to only type four digits 0-9. \n";
 		pin = getProperPIN(pinList);
 	}
-	if (static_cast<int>(log10(pin) + 1) != 4)
+	if (pin.length() != 4)
 	{
 		std::cout << "I'm sorry, but the PIN must be 4 digits long. Please try again, making sure to only enter 4 digits.";
 		pin = getProperPIN(pinList);
 	}
 
-	for (int element : pinList)
+	for (std::string element : pinList)
 	{
 		if (element == pin)
 		{
@@ -55,7 +57,7 @@ void MenuEngine::createNewCustomer()
 	std::getline(std::cin, name);
 	std::cout << "\n";
 
-	int pin = getProperPIN(pinList);
+	std::string pin = getProperPIN(pinList);
 	pinList.push_back(pin);
 
 	Customer tempCustomer;
@@ -99,10 +101,9 @@ Customer* MenuEngine::loginMenu()
 	case 2:
 	{
 		std::cout << "Please enter the customer PIN: ";
-		int pin;
-		std::cin >> pin;
-		std::cin.ignore(32767, '\n');
-		if (static_cast<int>(log10(pin) + 1) != 4)
+		std::string pin;
+		std::getline(std::cin, pin);
+		if (pin.length() != 4)
 		{
 			std::cout << "I'm sorry, but the PIN must be 4 digits long. Please try again.";
 			returnCustomer = loginMenu(); // yep, we're making them start over again
