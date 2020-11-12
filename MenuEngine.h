@@ -17,8 +17,8 @@ public:
 	static Customer* loginMenu();
 
 	static void customerMenu(Customer& customer);
-	static int checkingAccountMenu(Checking& checkingAccount);
-	static int savingsAccountMenu(Savings& savingsAccount);
+	static void checkingAccountMenu(Checking& checkingAccount);
+	static void savingsAccountMenu(Savings& savingsAccount);
 
 private:
 	static std::vector<Customer> customerList;
