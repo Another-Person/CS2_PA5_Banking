@@ -8,15 +8,22 @@
 #include "Savings.h"
 
 
+class MenuEngine
+{
+public:
+	static int mainMenu();
 
-int mainMenu();
+	static void createNewCustomer();
+	static Customer* loginMenu();
 
-Customer& createNewCustomer(std::vector<int>& pinList);
-Customer* loginMenu(std::vector<Customer>& customerList);
+	static void customerMenu(Customer& customer);
+	static int checkingAccountMenu(Checking& checkingAccount);
+	static int savingsAccountMenu(Savings& savingsAccount);
 
-int customerMenu(Customer& customer);
-int checkingAccountMenu(Checking& checkingAccount);
-int savingsAccountMenu(Savings& savingsAccount);
+private:
+	static std::vector<Customer> customerList;
+	static std::vector<int> pinList;
 
+};
 
 #endif

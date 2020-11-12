@@ -4,8 +4,6 @@
 class Account
 {
 public:
-	virtual ~Account() = default;
-
 	enum class Status
 	{
 		Closed,

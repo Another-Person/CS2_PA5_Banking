@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "Checking.h"
+#include "MenuEngine.h"
 #include "Savings.h"
 
 class Customer
@@ -20,7 +21,12 @@ public:
 	std::string getName() { return name; }
 	bool checkPIN(int pinToCheck) { return (pin == pinToCheck); }
 
-	friend Customer& createNewCustomer(std::vector<int>& pinList);
+	void openCheckingAccount(double balance) { checkingAccount.openAccount(balance); }
+	void closeCheckingAccount() { checkingAccount.closeAccount(); }
+	void openSavingsAccount(double balance) { savingsAccount.openAccount(balance); }
+	void closeSavingsAccount() { savingsAccount.closeAccount(); }
+
+	friend class MenuEngine;
 
 protected:
 	std::string name;

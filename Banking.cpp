@@ -7,21 +7,24 @@
 
 int main()
 {
-	std::vector<Customer> customerList;
-	std::vector<int> pinList;
 	int menuAction = 0;
 	
 	while (true)
 	{
-		menuAction = mainMenu();
+		menuAction = MenuEngine::mainMenu();
 		switch (menuAction)
 		{
 		case 1:
-			customerList.push_back(createNewCustomer(pinList));
+			MenuEngine::createNewCustomer();
 			break;
 		case 2:
-			customerMenu(loginMenu(customerList));
+		{
+			Customer *tempCustomer = MenuEngine::loginMenu();
+			if (tempCustomer == nullptr)
+				break;
+			MenuEngine::customerMenu(*(tempCustomer));
 			break;
+		}
 		case 3:
 			return 0;
 		default:
