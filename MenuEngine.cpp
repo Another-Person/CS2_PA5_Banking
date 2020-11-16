@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+#include <cctype>
 
 #include "MenuEngine.h"
 #include "Customer.h"
@@ -27,14 +27,17 @@ std::string getProperPIN(const std::vector<std::string>& pinList)
 	std::cout << "Please enter the four-digit PIN for the new account: ";
 	std::string pin;
 	std::getline(std::cin, pin);
-	if (false)
+	for (int i = 0; i < pin.length(); i++)
 	{
-		std::cout << "I'm sorry, but we could not understand your input. Please try again, making sure to only type four digits 0-9. \n";
-		pin = getProperPIN(pinList);
+		if (std::isdigit(pin.at(i)) == 0)
+		{
+			std::cout << "We're sorry, but PINs must only contain digits 0-9. Please try again. \n";
+			pin = getProperPIN(pinList);
+		}
 	}
-	if (pin.length() != 4)
+	if (pin.length() != 4 )
 	{
-		std::cout << "I'm sorry, but the PIN must be 4 digits long. Please try again, making sure to only enter 4 digits.";
+		std::cout << "We're sorry, but PINs must be 4 digits long. Please try again. \n";
 		pin = getProperPIN(pinList);
 	}
 
@@ -141,7 +144,7 @@ double getMoneyInput(std::string amountName = "amount")
 	std::cin >> cents;
 	std::cin.ignore(32767, '\n');
 	std::cout << "\n";
-	double newBalance = dollars+(static_cast<double>(cents) / 100);
+	double newBalance = dollars+(static_cast<double>(cents) / 100.0);
 	std::cout << "Is " << newBalance << " the correct " << amountName << "? Y/n ";
 	std::string answer;
 	std::getline(std::cin, answer);
