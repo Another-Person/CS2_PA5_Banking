@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <iomanip>
 
 #include "Customer.h"
 #include "MenuEngine.h"
@@ -8,6 +8,7 @@
 int main()
 {
 	int menuAction = 0;
+	std::cout << std::setprecision(10);
 	
 	while (true)
 	{
